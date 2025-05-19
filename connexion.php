@@ -15,13 +15,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
         exit;
     } else {
-        echo "Email ou mot de passe incorrect.";
+        $erreur = "Email ou mot de passe incorrect.";
     }
 }
 ?>
 
-<form method="post">
-    Email : <input type="email" name="email" required><br>
-    Mot de passe : <input type="password" name="mot_de_passe" required><br>
-    <button type="submit">Se connecter</button>
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Connexion</h2>
+    <?php if (!empty($erreur)) echo "<p style='color:red;'>$erreur</p>"; ?>
+    <form method="post">
+        Email : <input type="email" name="email" required><br>
+        Mot de passe : <input type="password" name="mot_de_passe" required><br>
+        <button type="submit">Se connecter</button>
+    </form>
+</div>
+</body>
+</html>
+

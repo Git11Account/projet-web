@@ -9,13 +9,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, email, mot_de_passe) VALUES (?, ?, ?)");
     $stmt->execute([$nom, $email, $mot_de_passe]);
 
-    echo "Inscription réussie. <a href='connexion.php'>Connectez-vous</a>";
+    echo "<p>Inscription réussie. <a href='connexion.php'>Connectez-vous</a></p>";
 }
 ?>
 
-<form method="post">
-    Nom : <input type="text" name="nom" required><br>
-    Email : <input type="email" name="email" required><br>
-    Mot de passe : <input type="password" name="mot_de_passe" required><br>
-    <button type="submit">S'inscrire</button>
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Inscription</h2>
+    <form method="post">
+        Nom : <input type="text" name="nom" required><br>
+        Email : <input type="email" name="email" required><br>
+        Mot de passe : <input type="password" name="mot_de_passe" required><br>
+        <button type="submit">S'inscrire</button>
+    </form>
+</div>
+</body>
+</html>
